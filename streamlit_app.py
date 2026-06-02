@@ -5,15 +5,22 @@ from sympy import sympify
 
 st.set_page_config(page_title="이항정리 학습도구", layout="wide")
 
-st.title("📐 이항정리 학습도구")
-st.markdown("**(a+b)^n 을 전개하는 과정을 단계별로 학습하세요!**")
+st.title("� 이항정리 & 파스칼의 삼각형 학습도구")
+st.markdown("""
+이 교육 도구에서는 **이항정리(Binomial Theorem)**와 **파스칼의 삼각형(Pascal's Triangle)**을 단계별로 학습할 수 있습니다.
+
+**📖 페이지 구성:**
+- 🏠 **홈** (현재 페이지): 이항정리 계산 및 연습문제
+- 🔺 **파스칼의 삼각형**: 삼각형 생성과 이항정리와의 관계
+""")
+
+st.markdown("---")
 
 # 탭 구성
 tab1, tab2 = st.tabs(["이항정리 계산", "연습문제"])
 
 with tab1:
-    st.markdown("---")
-    st.subheader("이항정리 전개")
+    st.markdown("## 이항정리 전개")
     
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -23,7 +30,7 @@ with tab1:
     with col3:
         b_var = st.text_input("b의 계수 (기본값: 1):", value="1")
     
-    if st.button("전개하기", key="expand_btn"):
+    if st.button("전개하기", key="expand_btn", use_container_width=True):
         try:
             a, b, x, y = symbols('a b x y')
             
@@ -82,12 +89,11 @@ with tab1:
             st.error(f"오류 발생: {str(e)}")
 
 with tab2:
-    st.markdown("---")
-    st.subheader("🎯 연습문제")
+    st.markdown("## 🎯 연습문제")
     st.markdown("다음 문제들을 풀어보세요!")
     
     # 문제 1
-    st.markdown("#### 문제 1")
+    st.markdown("### 문제 1")
     st.markdown("**(x+y)^2** 를 전개하시오.")
     
     with st.expander("정답 확인"):
@@ -102,7 +108,7 @@ with tab2:
     st.markdown("")
     
     # 문제 2
-    st.markdown("#### 문제 2")
+    st.markdown("### 문제 2")
     st.markdown("**(a-b)^3** 를 전개하시오. (힌트: -b로 생각하면 됩니다)")
     
     with st.expander("정답 확인"):
@@ -119,7 +125,7 @@ with tab2:
     st.markdown("")
     
     # 문제 3
-    st.markdown("#### 문제 3")
+    st.markdown("### 문제 3")
     st.markdown("**(2x+1)^4** 를 전개하시오.")
     
     with st.expander("정답 확인"):
@@ -135,3 +141,15 @@ with tab2:
     
     st.markdown("")
     st.info("💡 위의 '이항정리 계산' 탭에서 직접 계산하여 답을 확인해볼 수 있습니다!")
+
+st.markdown("---")
+
+st.markdown("""
+### 📌 다음 단계
+좌측 사이드바의 **🔺 파스칼의 삼각형** 페이지에서:
+- 파스칼의 삼각형이 만들어지는 과정 확인
+- 이항정리와의 관계 이해
+- 삼각형의 성질 탐구
+
+를 할 수 있습니다! ✨
+""")
